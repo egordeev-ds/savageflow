@@ -1,1 +1,1 @@
-web: gunicorn webbook.wsgi --log-file -
+web: gunicorn savageflow.wsgi
