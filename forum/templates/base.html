@@ -1,0 +1,23 @@
+{% load static %} <!-- Добавьте эту строку -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}SavageFlow{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'menu.css' %}"> <!-- Добавьте эту строку -->
+</head>
+<body>
+    <div id="navbar" class="navbar">
+        <a href="{% url 'main' %}">Главная</a>
+        <a href="{% url 'main' %}">Search</a>
+        <a href="{% url 'about' %}">О нас</a>
+        <a href="{% url 'contact' %}">Контакты</a>
+    </div>
+
+    {% block content %}
+    {% endblock %}
+
+    <script src="{% static 'menu.js' %}"></script> <!-- Добавьте эту строку -->
+</body>
+</html>

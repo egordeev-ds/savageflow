@@ -1,0 +1,37 @@
+/* Styles for the search bar*/
+.search-container {
+  background-color: #2b2b2b;
+  padding: 20px;
+
+  position: fixed;
+  top: 5%;
+  left: 25%;
+  right: 25%;
+  
+}  
+label {
+  font-size: 18px;
+  margin-right: 10px;
+  color: #ffffff;
+}
+input[type="text"] {
+  width: 500px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 4px;
+  margin-left: 25px;
+  margin-right: 25px;
+  border: none;
+}
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: none;
+  background-color: #4c4c4c;
+  color: #ffffff;
+  cursor: pointer;
+}
+.content {
+  margin-top: 120px;
+}

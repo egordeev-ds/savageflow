@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+{% include 'ask_button.html' %} <!-- Включаем файл search.html -->
+{% include 'footer.html' %}
+{% include 'questions.html' with questions=questions %}
+
+{% endblock %}

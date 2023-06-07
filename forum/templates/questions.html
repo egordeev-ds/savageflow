@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+  <div class="container">
+
+    {% comment %}Заголовок{% endcomment %}
+
+    <div class="heading">
+      <h1>All questions</h1>
+      <p id="question-count">Total number of questions: {{ questions.count }}</p>
+    
+      {% comment %}Сортировка{% endcomment %}
+
+      <div class="sort-options">
+        <label>Sort by:</label>
+        <select id="sort-by-select" onchange="handleSortByChange(this)">
+          <option value="-created_at" {% if sort_by == '-created_at' %}selected{% endif %}>Newest</option>
+          <option value="created_at" {% if sort_by == 'created_at' %}selected{% endif %}>Oldest</option>
+        </select>
+      </div>
+
+      <script>
+        function handleSortByChange(selectElement) {
+          const selectedValue = selectElement.value;
+          const urlParams = new URLSearchParams(window.location.search);
+          urlParams.set('sort_by', selectedValue);
+          window.location.search = urlParams.toString();
+        }
+      </script>
+
+    </div>
+
+    {% comment %}Вывод вопросов{% endcomment %}
+
+    <div id="question-list">
+      {% for question in page %}
+        <div class="question">
+          <h2 class="question-title"><a href="{% url 'question_detail' question.id %}">{{ question.title }}</a></h2>
+          <p class="question-details">{{ question.content }}</p>
+          <p class="timestamp">Asked at: {{ question.created_at }}</p>
+        </div>
+      {% endfor %}
+    </div>
+
+    {% comment %}Переключение страниц{% endcomment %}
+
+    <div class="pagination">
+      {% if page.has_previous %}
+        <a href="?page={{ page.previous_page_number }}">Previous</a>
+      {% endif %}
+      
+      <span class="current-page">{{ page.number }}</span>
+
+      {% if page.has_next %}
+        <a href="?page={{ page.next_page_number }}">Next</a>
+      {% endif %}
+    </div>
+
+  </div>
+
+  <link rel="stylesheet" href="{% static 'questions.css' %}">
+
+  {% comment %}Фильтр по заголовку{% endcomment %}
+
+  <div class="search-container">
+    <input type="text" id="filter-input">
+    <button onclick="handleSearch()">Search</button>
+  </div>
+    
+  <script src="{% static 'search_bar.js' %}"></script>
+  <link rel="stylesheet" href="{% static 'search_bar.css' %}">
+    
+{% endblock %}

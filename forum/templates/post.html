@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+  <meta charset="UTF-8">
+  <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+  
+  {% comment %} Форма {% endcomment %}
+  
+  <form method="post" enctype="multipart/form-data">
+
+    <h1>Создать новый пост</h1>
+    {% csrf_token %}
+
+    {% comment %}Заголовок{% endcomment %}
+    <div class="form-field">
+      <label for="id_title" class="form-label" style="display: block; margin-bottom: 10px;"><strong>Заголовок:</strong></label>
+      <input type="text" name="title" id="id_title" class="form-input" style="width: 500px; height: 30px; margin-bottom: 10px;" required>
+    </div>
+    
+    {% comment %}Содержание{% endcomment %}
+    <div class="form-field">
+      <label for="id_content" class="form-label" style="display: block; margin-bottom: 10px;"><strong>Содержание:</strong></label>
+      <div id="editor" class="form-input" style="width: 500px; height: 100px; margin-bottom: 10px; background-color: white;"></div>
+      <textarea name="content" id="id_content"  data-min-length="30" style="display: none;"></textarea>
+    </div>
+    
+    {% comment %}Кнопка отправить{% endcomment %}
+    <button type="submit" class="create-button" style="background-color: blue; color: white; font-size: 14px; margin-top: 40px;">Создать</button>
+  </form>
+
+  {% comment %} Картинки {% endcomment %}
+
+  <div>
+    <img src="../../../media/site_images/images.png" alt="Вопрос" class="question-image" style="position: absolute; top: 100px; right: 200px; width: 296px; height: 170px; background: transparent;">
+  </div>
+  
+  {% comment %} Editor {% endcomment %}
+
+  <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+  <script src="{% static 'editor.js' %}"></script>
+    
+  <style>
+    .ql-toolbar {
+      width: 500px;
+      background-color: #eaf6ff; /* Нежно голубой фон */
+    }
+    .ql-container {
+      width: 500px;
+    }
+  </style>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    {% comment %} Make Your answer {% endcomment %}
+
+    <div class="your-answer">
+      <h2>Your Answer</h2>
+      <form method="post" action="{% url 'answer' question.id %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div id="editor-container" style="position: relative; width: 500px; height: 300px;">
+          <div id="editor" class="form-input" style="background-color: white;"></div>
+          <textarea id="id_content" name="content" style="display: none;"></textarea> 
+          <div id="counter" style="position: absolute; bottom: 0; right: 0;">Characters: 0</div>
+          <button type="submit" class="create-button" style="background-color: blue; color: white; font-size: 14px; margin-top: 10px;">Создать</button>
+        </div>        
+      </form>
+    </div>
+
+    {% comment %} Editor {% endcomment %}
+    
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script src="{% static 'editor.js' %}"></script>
+    
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet"> 
+    <link rel="stylesheet" href="{% static 'paginator.css' %}">
+
+{% endblock %}
