@@ -1,0 +1,121 @@
+.container {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333333;
+
+  background-color: #f7eacd;
+  border: 10px solid #4c3f32;
+
+  margin-top: 10%;
+  margin-bottom: 10%;
+  transform: scale(0.8);
+
+}
+.container a {
+  color: #4c3f32
+}
+
+/* Styles for the heading */
+.heading {
+  position: relative;
+  margin-top: 2%;
+  margin-left: 2%;
+  margin-right: -2%;
+  width: 96%;
+}
+
+.heading h1 {
+  font-size: 24px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.heading p {
+  font-size: 20px;
+  text-align: left;
+  margin: 0;
+  padding: 5px;
+}
+
+.sort-options {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: scale(1.2);
+  transform-origin: bottom right;
+  box-sizing: border-box;
+  margin: 10px;
+}
+.sort-options label {
+  font-size: 16px;
+  color: #333333;
+}
+
+/* Styles for the question list */
+.question {
+  border: 5px solid black;
+  background-color: #d6d9dc;
+
+  margin-top: 2%;
+  margin-bottom: 2%;
+  margin-top: 2%;
+  margin-left: 2%;
+  margin-right: -2%;
+
+  width: 96%;
+  height: 16%;
+
+  overflow-x: hidden
+}
+.question-title {
+  font-size: 20px;
+  font-weight: bold;
+
+  margin-left: 2%;
+  margin-top: 2%;
+}
+.question-details {
+  margin-left: 2%;
+  margin-top: 1%;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Ограничивает текст тремя строками */
+  -webkit-box-orient: vertical;
+  overflow: hidden; /* Скрывает выходящий за границы контента */
+  text-overflow: ellipsis; /* Добавляет многоточие (...) для обрезанного текста */
+}
+.timestamp {
+  font-size: 14px;
+  color: black;
+
+  margin-right: 1%;
+  position: relative;
+  text-align: right
+}
+/* Styles for the pagination*/
+.pagination {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-bottom: -50px;
+}
+.pagination a {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #f1f1f1;
+  color: #333333;
+  text-decoration: none;
+  border: 1px solid #cccccc;
+  border-radius: 3px;
+  margin-left: 5px;
+}
+.pagination .current-page {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #333333;
+  color: #ffffff;
+  border: 1px solid #333333;
+  border-radius: 3px;
+  margin-left: 5px;
+}

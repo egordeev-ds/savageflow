@@ -1,0 +1,40 @@
+.about {
+    margin-top: 50px;
+    margin-right: 100px;
+    background-color: #f7eacd;
+    color: #4c3f32;
+    padding: 20px;
+    border: 2px solid #4c3f32;
+    border-radius: 10px;
+    font-family: 'Courier New', monospace;
+  }
+  
+  .about h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  
+  .about p {
+    margin-bottom: 10px;
+  }
+  
+  .about ul {
+    margin-top: 10px;
+  }
+  
+  .about ul li {
+    list-style-type: none;
+    margin-left: 20px;
+  }
+  
+  .about ul li:before {
+    content: "\2022";
+    color: #4c3f32;
+    font-size: 16px;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+  }  

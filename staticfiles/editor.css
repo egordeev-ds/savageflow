@@ -1,0 +1,18 @@
+.ql-toolbar {
+    background-color: #eaf6ff; /* Нежно голубой фон */
+    margin-top: 30px;
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 1000px;
+    max-height: 200px;
+  }
+  .ql-container {
+    border: 5px solid black;
+    border-radius: 4px;
+    background-color: #d6d9dc;
+    margin-top: 0px;
+    margin: 30 auto;
+    padding: 20px;
+    max-width: 1000px;
+    max-height: 200px;
+  }
