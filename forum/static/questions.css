@@ -7,9 +7,8 @@
   background-color: #f7eacd;
   border: 10px solid #4c3f32;
 
-  margin-top: 10%;
+  margin-top: 20%;
   margin-bottom: 10%;
-  transform: scale(0.8);
 
 }
 .container a {
@@ -95,11 +94,13 @@
 }
 /* Styles for the pagination*/
 .pagination {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  margin-bottom: -50px;
+  position: relative;
+  margin-bottom: 2%;
+  margin-left: 2%;
+  margin-right: 2%;
+  text-align: right
 }
+
 .pagination a {
   display: inline-block;
   padding: 5px 10px;

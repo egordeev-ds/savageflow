@@ -27,6 +27,7 @@
           <img src="{{ answer.image.url }}" alt="Answer Image">
         {% endif %}
         <p class="timestamp">Answered at: {{ answer.created_at }}</p>
+        <a href="edit/{{answer.id}}" class="action-button">Изменить</a>
         <a href="{% url 'delete_answer' answer.id %}">Удалить</a>
       </div>
     {% endfor %}    
@@ -41,7 +42,6 @@
         <div id="editor-container" style="position: relative; width: 500px; height: 300px;">
           <div id="editor" class="form-input" style="background-color: white;"></div>
           <textarea id="id_content" name="content" style="display: none;"></textarea> 
-          <div id="counter" style="position: absolute; bottom: 0; right: 0;">Characters: 0</div>
           <button type="submit" class="create-button" style="background-color: blue; color: white; font-size: 14px; margin-top: 10px;">Создать</button>
         </div>        
       </form>

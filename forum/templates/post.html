@@ -21,7 +21,7 @@
     {% comment %}Содержание{% endcomment %}
     <div class="form-field">
       <label for="id_content" class="form-label" style="display: block; margin-bottom: 10px;"><strong>Содержание:</strong></label>
-      <div id="editor" class="form-input" style="width: 500px; height: 100px; margin-bottom: 10px; background-color: white;"></div>
+      <div id="editor" class="form-input" style="width: 500px; height: 100px; margin-bottom: 10px; background-color: white; resize: both; overflow: auto;"></div>
       <textarea name="content" id="id_content"  data-min-length="30" style="display: none;"></textarea>
     </div>
     
@@ -32,12 +32,17 @@
   {% comment %} Картинки {% endcomment %}
 
   <div>
-    <img src="../../../media/site_images/images.png" alt="Вопрос" class="question-image" style="position: absolute; top: 100px; right: 200px; width: 296px; height: 170px; background: transparent;">
+    <img src="../static/media/site_images/images.png" alt="Вопрос" class="question-image" style="position: absolute; top: 100px; right: 200px; width: 296px; height: 170px; background: transparent;">
   </div>
   
   {% comment %} Editor {% endcomment %}
 
   <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
+
   <script src="{% static 'editor.js' %}"></script>
     
   <style>
@@ -49,5 +54,11 @@
       width: 500px;
     }
   </style>
+
+<style>
+  body {
+    margin-top: 5%;
+  }
+</style>
 
 {% endblock %}

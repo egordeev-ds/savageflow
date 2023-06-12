@@ -1,22 +1,28 @@
-{% load static %} <!-- Добавьте эту строку -->
+{% load static %}
 
 <!DOCTYPE html>
 <html>
 <head>
     <title>{% block title %}SavageFlow{% endblock %}</title>
     <link rel="stylesheet" type="text/css" href="{% static 'base.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'menu.css' %}"> <!-- Добавьте эту строку -->
+    
 </head>
 <body>
+    <div class="logo">
+        <h1><a href="/">Savageflow</a></h1>
+    </div>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'logo.css' %}">
+
     <div id="navbar" class="navbar">
         <a href="{% url 'main' %}">Главная</a>
-        <a href="{% url 'main' %}">Search</a>
         <a href="{% url 'about' %}">О нас</a>
         <a href="{% url 'contact' %}">Контакты</a>
     </div>
 
+    <link rel="stylesheet" type="text/css" href="{% static 'menu.css' %}">
+
     {% block content %}
     {% endblock %}
-
 </body>
 </html>

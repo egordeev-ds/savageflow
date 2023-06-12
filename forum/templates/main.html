@@ -2,6 +2,15 @@
 {% load static %}
 {% block content %}
 
+{% comment %}Фильтр по заголовку{% endcomment %}
+
+<div class="search-container">
+    <input type="text" id="filter-input">
+    <button onclick="handleSearch()">Search</button>
+</div>
+<script src="{% static 'search_bar.js' %}"></script>
+<link rel="stylesheet" href="{% static 'search_bar.css' %}">
+
 {% include 'ask_button.html' %} <!-- Включаем файл search.html -->
 {% include 'footer.html' %}
 {% include 'questions.html' with questions=questions %}

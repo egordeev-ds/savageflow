@@ -1,20 +1,20 @@
-/* Styles for the search bar*/
 .search-container {
   background-color: #2b2b2b;
   padding: 20px;
-
-  position: fixed;
-  top: 5%;
+  position: absolute;
+  top: 8%;
   left: 25%;
   right: 25%;
   
-}  
-label {
+}
+
+.search-container label {
   font-size: 18px;
   margin-right: 10px;
   color: #ffffff;
 }
-input[type="text"] {
+
+.search-container input[type="text"] {
   width: 500px;
   padding: 10px;
   font-size: 16px;
@@ -23,7 +23,8 @@ input[type="text"] {
   margin-right: 25px;
   border: none;
 }
-button {
+
+.search-container button {
   padding: 10px 20px;
   font-size: 16px;
   border-radius: 4px;
@@ -32,6 +33,7 @@ button {
   color: #ffffff;
   cursor: pointer;
 }
+
 .content {
   margin-top: 120px;
 }

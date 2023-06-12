@@ -17,6 +17,7 @@ urlpatterns = [
     path('questions.html', views.questions_view, name='questions'),
     path('questions/<int:post_id>/', views.question_detail, name='question_detail'),
     path('delete_answer/<int:answer_id>/', views.delete_answer, name='delete_answer'),
+    path('questions/<int:question_id>/edit/<int:answer_id>/', views.edit, name='edit'),
     path('answer/<int:post_id>/', views.answer_view, name='answer'),
 
     #add question

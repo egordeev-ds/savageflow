@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.db.models import Q
 from django.core.paginator import Paginator
 from .forms import PostForm, AnswerForm
+from django.http import HttpResponse, HttpResponsePermanentRedirect, HttpResponseRedirect, HttpResponseNotFound
 from .models import Post, Answer
 
 #главная страница
@@ -42,6 +43,18 @@ def delete_answer(request, answer_id):
         answer.is_deleted = True
         answer.save()
     return redirect(reverse('question_detail', kwargs={'post_id': answer.post_id}))
+
+def edit(request, question_id, answer_id):
+    try:
+        answer = Answer.objects.get(id=answer_id)
+        if request.method == 'POST':
+            answer.content = request.POST.get("content")
+            answer.save()
+            return redirect(reverse('question_detail', kwargs={'post_id': answer.post_id}))
+        else:
+            return render(request, 'edit.html', {'answer': answer})
+    except Answer.DoesNotExist:
+        return HttpResponseNotFound("<h2>Answer not found</h2>")
 
 def answer_view(request, post_id):
     post = Post.objects.get(pk=post_id)

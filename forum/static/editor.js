@@ -12,6 +12,19 @@ var quill = new Quill('#editor', {
   placeholder: 'Введите текст...'
 });
 
+// Add resizable functionality
+$(function() {
+  $('#editor-container').resizable({
+    handles: 'se', // Enable resizing only from the bottom-right corner
+    minHeight: 200, // Set a minimum height for the editor
+    minWidth: 300, // Set a minimum width for the editor
+    resize: function() {
+      // Refresh the Quill editor when resizing occurs
+      quill.resize();
+    }
+  });
+});
+
 // Подсчет кол-ва слов
 var counter = document.getElementById('counter');
 quill.on('text-change', function() {

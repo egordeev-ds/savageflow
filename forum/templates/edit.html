@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang='en'>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body class="container">
+
+        <!-- Редактирование человека -->
+        <form method="POST">
+            <!-- Защита от хакинг аттак -->
+            {% csrf_token %}
+            <p>
+                <label> Введите текст </label>
+                <input type="text" name = "content" value = "{answer.content}"/>
+            </p>
+            <input type="submit" value="Сохранить">
+        </form>
+
+    </body>
+</html>
