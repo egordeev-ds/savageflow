@@ -1,25 +1,31 @@
+#imports
 from pathlib import Path
 import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Modes
+SECRET_KEY = 'django-insecure-iz0pv#idi*945&xo4%xd1k67gm1k37xl=@+rxwu8w5f5vyqa69' #можно запихать в конфиг
 
-SECRET_KEY = 'django-insecure-iz0pv#idi*945&xo4%xd1k67gm1k37xl=@+rxwu8w5f5vyqa69'
-SECURE_SSL_REDIRECT = True
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
-SECURE_HSTS_SECONDS = 31536000
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-SECURE_HSTS_PRELOAD = True
-DEBUG = False
-ALLOWED_HOSTS = ['*']
+# Переключение между develop/prod средами
+IS_HEROKU_APP = "DYNO" in os.environ and not "CI" in os.environ
+
+if IS_HEROKU_APP:
+    DEBUG = False
+else:
+    DEBUG = True
+
+if IS_HEROKU_APP:
+    ALLOWED_HOSTS = ["*"]
+else:
+    ALLOWED_HOSTS = []
 
 # Application definition
 
 INSTALLED_APPS = [
+    "whitenoise.runserver_nostatic", # Use WhiteNoise's runserver implementation instead of the Django default, for dev-prod parity.
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -125,6 +131,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Heroku: Обновление конфигурации базы данных из $DATABASE_URL.
-import dj_database_url
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
