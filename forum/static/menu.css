@@ -10,7 +10,7 @@
 }
 .navbar a {
   display: block;
-  color: var(--bs-gray-800);
+  color: #f2f2f2;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;

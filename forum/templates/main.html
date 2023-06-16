@@ -2,8 +2,7 @@
 {% load static %}
 {% block content %}
 
-{% comment %}Фильтр по заголовку{% endcomment %}
-
+<!-- Фильтр по заголовку -->
 <div class="search-container">
     <input type="text" id="filter-input">
     <button onclick="handleSearch()">Search</button>
@@ -11,7 +10,11 @@
 <script src="{% static 'search_bar.js' %}"></script>
 <link rel="stylesheet" href="{% static 'search_bar.css' %}">
 
-{% include 'ask_button.html' %} <!-- Включаем файл search.html -->
+<!-- ask buttoon -->
+<div style="position: fixed; top: 180px; right: 140px; background-color: blue; padding: 10px;">
+    <a href="{% url 'post' %}" id="addQuestionBtn" style="color: white; text-decoration: none;">Add question</a>
+</div>
+
 {% include 'footer.html' %}
 {% include 'questions.html' with questions=questions %}
 
