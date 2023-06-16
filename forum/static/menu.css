@@ -10,7 +10,7 @@
 }
 .navbar a {
   display: block;
-  color: #f2f2f2;
+  color: var(--bs-gray-800);
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -18,8 +18,4 @@
 }
 .navbar a:first-child {
   margin-top: 150px; /* Добавляем отступ сверху только для первой ссылки */
-}
-.navbar a:hover {
-  background-color: #ddd;
-  color: black;
 }
